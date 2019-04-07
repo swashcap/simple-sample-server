@@ -10,14 +10,14 @@ import errorhandler from 'errorhandler'
 const app = express()
 const env = process.env.NODE_ENV
 
-app.use(cors)
+app.use(cors())
 
 if (env !== 'test') {
   app.use(morgan(env === 'development' ? 'dev' : 'common'))
 }
 
 if (env === 'development' || env === 'test') {
-  app.use(errorhandler)
+  app.use(errorhandler())
 }
 
 app.get('/', (req, res) => res.send('Hello World!'))
