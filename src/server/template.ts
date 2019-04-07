@@ -1,3 +1,5 @@
+import { APP_ELEMENT_ID } from '../common/app-element-id'
+
 /**
  * Base HTML template for server-side rendered content.
  */
@@ -16,7 +18,7 @@ export const template = ({
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div id="app">
+    <div id="${APP_ELEMENT_ID}">
       ${content}
     </div>
   </body>
