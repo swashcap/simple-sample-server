@@ -8,7 +8,7 @@ import morgan from 'morgan'
 import errorhandler from 'errorhandler'
 import { render } from 'preact-render-to-string'
 
-import { app as vdom } from '../client/app'
+import { App } from '../client/components/App'
 import { template } from './template'
 
 const app = express()
@@ -24,7 +24,7 @@ if (env === 'development' || env === 'test') {
   app.use(errorhandler())
 }
 
-app.get('/', (req, res) => res.send(template({ content: render(vdom) })))
+app.get('/', (req, res) => res.send(template({ content: render(App()) })))
 
 if (require.main === module) {
   app.listen(process.env.PORT, () =>

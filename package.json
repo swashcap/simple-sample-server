@@ -15,7 +15,8 @@
     "express": "^4.16.4",
     "morgan": "^1.9.1",
     "preact": "^8.4.2",
-    "preact-render-to-string": "^4.1.0"
+    "preact-render-to-string": "^4.1.0",
+    "preact-router": "^2.6.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
