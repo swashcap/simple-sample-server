@@ -6,6 +6,9 @@ import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
 import errorhandler from 'errorhandler'
+import { render } from 'preact-render-to-string'
+
+import { app as vdom } from '../client/app'
 
 const app = express()
 const env = process.env.NODE_ENV
@@ -20,7 +23,7 @@ if (env === 'development' || env === 'test') {
   app.use(errorhandler())
 }
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send(render(vdom)))
 
 if (require.main === module) {
   app.listen(process.env.PORT, () =>
