@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write '*.js' 'src/**/*.ts'",
+    "format": "prettier --write '*.js' 'src/**/*.{ts,tsx}'",
     "start": "node src/server",
     "watch": "tsc -w --preserveWatchOutput"
   }
