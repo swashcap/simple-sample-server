@@ -9,6 +9,7 @@ import errorhandler from 'errorhandler'
 import { render } from 'preact-render-to-string'
 
 import { app as vdom } from '../client/app'
+import { template } from './template'
 
 const app = express()
 const env = process.env.NODE_ENV
@@ -23,7 +24,7 @@ if (env === 'development' || env === 'test') {
   app.use(errorhandler())
 }
 
-app.get('/', (req, res) => res.send(render(vdom)))
+app.get('/', (req, res) => res.send(template({ content: render(vdom) })))
 
 if (require.main === module) {
   app.listen(process.env.PORT, () =>
