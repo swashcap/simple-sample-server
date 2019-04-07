@@ -6,5 +6,15 @@
   "repository": "git@github.com:swashcap/simple-sample-server.git",
   "author": "Cory Reed",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "format": "prettier --write '*.js'"
+  }
 }
