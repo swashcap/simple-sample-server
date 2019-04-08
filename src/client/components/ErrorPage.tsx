@@ -16,7 +16,7 @@ export const ErrorPage = ({
       : "It's a general error"
 
   return (
-    <div>
+    <div class="tc">
       <h1>Oh, no!</h1>
       <p>{message}</p>
     </div>

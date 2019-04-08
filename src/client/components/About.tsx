@@ -3,7 +3,7 @@ import { RoutableProps } from 'preact-router'
 
 export const About = (props: RoutableProps) => (
   <div>
-    <h1>About</h1>
+    <h1 class="sans-serif">About</h1>
     <p>
       Proin vestibulum nunc in metus cursus at aliquam neque mollis. Curabitur
       hendrerit porta nibh, a dignissim diam tempor eu. Nam id erat dictum velit
