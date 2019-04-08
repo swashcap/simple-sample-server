@@ -26,7 +26,7 @@ export const template = ({
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body class="sans-serif w-100">
     <div id="${APP_ELEMENT_ID}">
       ${content}
     </div>

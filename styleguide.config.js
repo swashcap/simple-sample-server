@@ -1,5 +1,7 @@
+const path = require('path')
+
 module.exports = {
-  components: 'src/client/components/**/*.{ts,tsx}',
+  components: 'src/**/*.{ts,tsx}',
   dangerouslyUpdateWebpackConfig(webpackConfig) {
     webpackConfig.resolve = {
       ...webpackConfig.resolve,
@@ -12,6 +14,10 @@ module.exports = {
 
     return webpackConfig
   },
-  require: ['./rsg/bootstrap.ts'],
-  skipComponentsWithoutExample: true
+  ignore: ['src/server/**/*'],
+  require: ['./rsg/bootstrap.ts', './node_modules/tachyons/css/tachyons.css'],
+  skipComponentsWithoutExample: true,
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, 'rsg/Wrapper.tsx')
+  }
 }

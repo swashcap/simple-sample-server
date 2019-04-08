@@ -8,6 +8,10 @@ module.exports = {
         test: /\.tsx?$/
       },
       {
+        test: /\.css?$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         enforce: 'pre',
         loader: 'source-map-loader',
         test: /\.js$/
