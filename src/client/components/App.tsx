@@ -13,8 +13,8 @@ export const App = ({ initialUrl }: { initialUrl?: string }) => (
     <Header />
     <main>
       <Router url={initialUrl}>
-        <Home path={routes.home} />
-        <About path={routes.about} />
+        <Home path={routes.home.path} />
+        <About path={routes.about.path} />
         <ErrorPage code={404} default />
       </Router>
     </main>

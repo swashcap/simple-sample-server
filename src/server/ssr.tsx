@@ -1,12 +1,13 @@
 import { RequestHandler } from 'express'
 import { h } from 'preact'
 import { render } from 'preact-render-to-string'
+import status from 'statuses'
 
 import { APP_ELEMENT_ID } from '../common/app-element-id'
 import { routes } from '../common/routes'
 import { App } from '../client/components/App'
 
-const routePaths = Object.values(routes)
+const routeObjs = Object.values(routes)
 
 /**
  * Base HTML template for server-side rendered content.
@@ -33,11 +34,13 @@ export const template = ({
 </html>`
 
 export const ssr = (): RequestHandler => ({ path }, res) => {
-  const body = template({ content: render(<App initialUrl={path} />) })
+  // TODO: See if preact-router has a match function
+  const match = routeObjs.find(({ path: p }) => p === path)
+  const content = render(<App initialUrl={path} />)
 
-  if (!routePaths.includes(path)) {
-    return res.status(404).send(body)
+  if (!match) {
+    return res.status(404).send(template({ content, title: status[404] }))
   }
 
-  res.send(body)
+  res.send(template({ content, title: match.title }))
 }
