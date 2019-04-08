@@ -1,12 +1,14 @@
 import { h } from 'preact'
 
+import { routes } from '../../common/routes'
+
 export const Header = () => (
   <header role="banner">
     <nav>
-      <a href="/" rel="home">
+      <a href={routes.home} rel="home">
         Simple Sample Server
       </a>
-      <a href="/about/">About</a>
+      <a href={routes.about}>About</a>
     </nav>
   </header>
 )
