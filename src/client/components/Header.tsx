@@ -6,6 +6,7 @@ export const Header = () => (
       <a href="/" rel="home">
         Simple Sample Server
       </a>
+      <a href="/about/">About</a>
     </nav>
   </header>
 )
