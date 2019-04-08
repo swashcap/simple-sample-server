@@ -1,4 +1,12 @@
+import { RequestHandler } from 'express'
+import { h } from 'preact'
+import { render } from 'preact-render-to-string'
+
 import { APP_ELEMENT_ID } from '../common/app-element-id'
+import { routes } from '../common/routes'
+import { App } from '../client/components/App'
+
+const routePaths = Object.values(routes)
 
 /**
  * Base HTML template for server-side rendered content.
@@ -23,3 +31,13 @@ export const template = ({
     </div>
   </body>
 </html>`
+
+export const ssr = (): RequestHandler => ({ path }, res) => {
+  const body = template({ content: render(<App initialUrl={path} />) })
+
+  if (!routePaths.includes(path)) {
+    return res.status(404).send(body)
+  }
+
+  res.send(body)
+}

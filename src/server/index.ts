@@ -6,10 +6,8 @@ import cors from 'cors'
 import express from 'express'
 import morgan from 'morgan'
 import errorhandler from 'errorhandler'
-import { render } from 'preact-render-to-string'
 
-import { App } from '../client/components/App'
-import { template } from './template'
+import { ssr } from './ssr'
 
 const app = express()
 const env = process.env.NODE_ENV
@@ -24,7 +22,7 @@ if (env === 'development' || env === 'test') {
   app.use(errorhandler())
 }
 
-app.get('/', (req, res) => res.send(template({ content: render(App()) })))
+app.get('*', ssr())
 
 if (require.main === module) {
   app.listen(process.env.PORT, () =>
