@@ -63,3 +63,5 @@ typings/
 # Compiled files
 src/**/*.js
 src/**/*.map
+rsg/**/*.js
+rsg/**/*.map
