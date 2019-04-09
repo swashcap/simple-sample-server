@@ -65,3 +65,6 @@ src/**/*.js
 src/**/*.map
 rsg/**/*.js
 rsg/**/*.map
+
+# macOS dir state
+.DS_Store
