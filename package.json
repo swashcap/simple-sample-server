@@ -41,7 +41,9 @@
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "typescript": "^3.4.2",
-    "webpack": "^4.29.6"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.0"
   },
   "scripts": {
     "build": "tsc",
@@ -52,6 +54,7 @@
     "styleguide:build": "styleguidist build",
     "watch": "run-p watch:*",
     "watch:server": "nodemon",
-    "watch:ts": "tsc -w --preserveWatchOutput"
+    "watch:ts": "tsc -w --preserveWatchOutput",
+    "wds": "webpack-dev-server"
   }
 }

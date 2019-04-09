@@ -1,6 +1,12 @@
+const path = require('path')
+
 module.exports = {
   devtool: 'source-map',
-  entry: 'src/client/index.ts',
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    port: 9000
+  },
+  entry: './src/client/index.ts',
   module: {
     rules: [
       {
