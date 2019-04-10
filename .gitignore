@@ -68,3 +68,6 @@ rsg/**/*.map
 
 # macOS dir state
 .DS_Store
+
+# webpack build
+dist
