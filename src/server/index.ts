@@ -8,18 +8,18 @@ import morgan from 'morgan'
 import errorhandler from 'errorhandler'
 import path from 'path'
 
+import { config } from './config'
 import { ssr } from './ssr'
 
 const app = express()
-const env = process.env.NODE_ENV
 
 app.use(cors())
 
-if (env !== 'test') {
-  app.use(morgan(env === 'development' ? 'dev' : 'common'))
+if (config.env !== 'test') {
+  app.use(morgan(config.env === 'development' ? 'dev' : 'common'))
 }
 
-if (env === 'development' || env === 'test') {
+if (config.env === 'development' || config.env === 'test') {
   app.use(errorhandler())
 }
 
@@ -27,8 +27,8 @@ app.use(express.static(path.resolve(__dirname, '../../public')))
 app.get('*', ssr())
 
 if (require.main === module) {
-  app.listen(process.env.PORT, () =>
-    console.log(`Server listening on ${process.env.PORT}`)
+  app.listen(config.port, () =>
+    console.log(`Server listening on ${config.port}`)
   )
 }
 
