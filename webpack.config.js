@@ -6,7 +6,7 @@ module.exports = {
     port: 9000
   },
   devtool: 'source-map',
-  entry: './src/client/index.ts',
+  entry: './src/client/index.tsx',
   module: {
     rules: [
       {
