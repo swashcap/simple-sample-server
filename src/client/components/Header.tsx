@@ -1,20 +1,17 @@
 import { h } from 'preact'
 
+import { Link } from './controls/Link'
 import { routes } from '../../common/routes'
 
 export const Header = () => (
   <header role="banner">
     <nav>
-      <a
-        class="dark-green dib dim link pa2 underline"
-        href={routes.home.path}
-        rel="home"
-      >
+      <Link class="dib pa2" href={routes.home.path} rel="home">
         Simple Sample Server
-      </a>
-      <a class="dark-green dib dim link pa2 underline" href={routes.about.path}>
+      </Link>
+      <Link class="dib pa2" href={routes.about.path}>
         About
-      </a>
+      </Link>
     </nav>
   </header>
 )
