@@ -41,17 +41,21 @@
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "typescript": "^3.4.2",
-    "webpack": "^4.29.6"
+    "wait-on": "^3.2.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
     "build": "tsc",
-    "clean": "find src -type f -name '*.js' -exec rm {} \\+",
+    "clean": "find src -type f \\( -name '*.js' -o -name '*.map' \\) -exec rm {} \\+",
     "format": "prettier --write '*.js' '{rsg,src}/**/*.{ts,tsx}'",
     "start": "node src/server",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "watch": "run-p watch:*",
-    "watch:server": "nodemon",
+    "watch": "rm -f src/server/index.js && run-p watch:*",
+    "watch:server": "wait-on http://localhost:9000 src/server/index.js && nodemon",
+    "watch:wds": "webpack-dev-server",
     "watch:ts": "tsc -w --preserveWatchOutput"
   }
 }

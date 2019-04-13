@@ -1,6 +1,12 @@
+const path = require('path')
+
 module.exports = {
+  devServer: {
+    compress: true,
+    port: 9000
+  },
   devtool: 'source-map',
-  entry: 'src/client/index.ts',
+  entry: './src/client/index.ts',
   module: {
     rules: [
       {
@@ -17,5 +23,12 @@ module.exports = {
         test: /\.js$/
       }
     ]
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json']
   }
 }
