@@ -10,8 +10,13 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'awesome-typescript-loader',
-        test: /\.tsx?$/
+        test: /\.tsx?$/,
+        use: {
+          loader: 'awesome-typescript-loader',
+          options: {
+            useCache: true
+          }
+        }
       },
       {
         test: /\.css?$/,
