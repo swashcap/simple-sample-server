@@ -6,6 +6,7 @@
     "src/**/*.{ts,tsx}"
   ],
   "watch": [
-    "src"
+    "src/common",
+    "src/server"
   ]
 }

@@ -14,29 +14,33 @@ const routeObjs = Object.values(routes)
  */
 export const template = ({
   content = '',
+  description = '',
   title = ''
 }: {
   content?: string
+  description?: string
   title?: string
 }) => `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>${title}</title>
-    <meta name="description" content="">
+    <meta name="description" content="${description}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="sans-serif w-100">
     <div id="${APP_ELEMENT_ID}">
-      ${content}
+    ${content}
     </div>
+    <script src="//localhost:9000/main.bundle.js"></script>
   </body>
 </html>`
 
 export const ssr = (): RequestHandler => ({ path }, res) => {
   // TODO: See if preact-router has a match function
   const match = routeObjs.find(({ path: p }) => p === path)
-  const content = render(<App initialUrl={path} />)
+  const content =
+    process.env.NODE_ENV === 'wat' ? '' : render(<App initialUrl={path} />)
 
   if (!match) {
     return res.status(404).send(template({ content, title: status[404] }))
