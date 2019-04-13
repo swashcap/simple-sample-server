@@ -47,7 +47,9 @@
     "webpack-dev-server": "^3.3.1"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "run-p build:*",
+    "build:ts": "tsc",
+    "build:webpack": "webpack --mode production",
     "clean": "find src -type f \\( -name '*.js' -o -name '*.map' \\) -exec rm {} \\+",
     "format": "prettier --write '*.js' '{rsg,src}/**/*.{ts,tsx}'",
     "start": "node src/server",
@@ -55,7 +57,7 @@
     "styleguide:build": "styleguidist build",
     "watch": "rm -f src/server/index.js && run-p watch:*",
     "watch:server": "wait-on http://localhost:9000 src/server/index.js && nodemon",
-    "watch:wds": "webpack-dev-server",
-    "watch:ts": "tsc -w --preserveWatchOutput"
+    "watch:ts": "tsc -w --preserveWatchOutput",
+    "watch:wds": "webpack-dev-server"
   }
 }

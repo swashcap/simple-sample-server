@@ -1,8 +1,10 @@
 import { h } from 'preact'
 
+import { Caption } from './text/Caption'
+
 export const Footer = () => (
   <footer class="bt b--gray pt3 tr" role="contentinfo">
-    <small class="db f6 mid-gray">
+    <Caption class="db mid-gray" element="small">
       Source code{' '}
       <a
         class="dim link mid-gray underline"
@@ -10,6 +12,6 @@ export const Footer = () => (
       >
         on GitHub
       </a>
-    </small>
+    </Caption>
   </footer>
 )

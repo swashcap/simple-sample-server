@@ -1,10 +1,13 @@
 import { h } from 'preact'
 import { RoutableProps } from 'preact-router'
 
+import { Headline } from './text/Headline'
+import { Text } from './text/Text'
+
 export const About = (props: RoutableProps) => (
   <div>
-    <h1 class="sans-serif">About</h1>
-    <p>
+    <Headline class="mt0 mb3">About</Headline>
+    <Text class="mt0 mb3" element="p">
       Proin vestibulum nunc in metus cursus at aliquam neque mollis. Curabitur
       hendrerit porta nibh, a dignissim diam tempor eu. Nam id erat dictum velit
       facilisis tincidunt. Etiam auctor, felis et auctor blandit, eros quam
@@ -16,8 +19,8 @@ export const About = (props: RoutableProps) => (
       pharetra nunc, et consectetur nulla nisl a dolor. Phasellus suscipit ipsum
       nec purus luctus ut euismod nisi dapibus. Vestibulum eget metus in lorem
       dignissim condimentum mattis non lorem.
-    </p>
-    <p>
+    </Text>
+    <Text class="mt0 mb3" element="p">
       Morbi est tellus, dapibus at imperdiet non, ultricies ut risus. Nunc
       faucibus leo in augue sodales eget rhoncus dolor lobortis. Fusce pulvinar
       ipsum eu augue pharetra at congue arcu aliquam. Cras in sem dui. Nam a
@@ -25,6 +28,6 @@ export const About = (props: RoutableProps) => (
       non nisl egestas aliquam id eget elit. Vivamus sed nisl vitae arcu
       adipiscing lacinia ac a dui. Cras hendrerit, tortor sed pharetra dapibus,
       nisl justo dapibus arcu, volutpat placerat quam massa vel lectus.
-    </p>
+    </Text>
   </div>
 )

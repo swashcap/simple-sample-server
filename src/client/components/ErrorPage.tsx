@@ -1,6 +1,9 @@
 import { h } from 'preact'
 import { RoutableProps } from 'preact-router'
 
+import { Headline } from './text/Headline'
+import { Text } from './text/Text'
+
 const messages: Record<number, string> = {
   404: 'Could not find it, dude'
 }
@@ -17,8 +20,8 @@ export const ErrorPage = ({
 
   return (
     <div class="tc">
-      <h1>Oh, no!</h1>
-      <p>{message}</p>
+      <Headline class="mt0 mb3">Oh, no!</Headline>
+      <Text class="m0">{message}</Text>
     </div>
   )
 }
