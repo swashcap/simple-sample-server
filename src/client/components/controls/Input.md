@@ -1,6 +1,6 @@
 ```jsx
 <Input
-  id="text"
-  value="hello"
+  id="demo-text"
+  value="Hello"
 />
 ```
