@@ -5,7 +5,7 @@ import { Headline } from '../text/Headline'
 import { Text } from '../text/Text'
 
 export const About = (props: RoutableProps) => (
-  <div>
+  <div class="ph3">
     <Headline class="mt0 mb3">About</Headline>
     <Text class="mt0 mb3" element="p">
       Proin vestibulum nunc in metus cursus at aliquam neque mollis. Curabitur

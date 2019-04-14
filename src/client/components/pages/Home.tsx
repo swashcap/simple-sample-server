@@ -7,7 +7,7 @@ import { Link } from '../controls/Link'
 import { Subheadline } from '../text/Subheadline'
 
 export const Home = (props: RoutableProps) => (
-  <div>
+  <div class="ph3">
     <Headline class="mt0">Hello, world!</Headline>
     <Text class="measure mv3" element="p">
       This is the demo for an{' '}
@@ -28,7 +28,7 @@ export const Home = (props: RoutableProps) => (
       </Link>
       .
     </Text>
-    <Subheadline>Why?</Subheadline>
+    <Subheadline class="mt4">Why?</Subheadline>
     <Text class="measure mv3" element="p">
       Isomorphic JavaScript applications are relatively simple to configure.
       This shows how!
