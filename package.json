@@ -61,10 +61,11 @@
     "start": "node src/server",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "watch": "rm -f src/{client/styles.build.css,server/index.js} && run-p watch:*",
-    "watch:server": "wait-on http://localhost:9000 src/server/index.js && yarn start",
-    "watch:styles": "./scripts/watch-styles.sh",
-    "watch:ts": "tsc -w --preserveWatchOutput",
-    "watch:wds": "wait-on src/client/styles.build.css && webpack-dev-server"
+    "watch:client": "rm -f src/client/styles.build.css && run-p watch:client:*",
+    "watch:client:styles": "./scripts/watch-styles.sh",
+    "watch:client:wds": "wait-on src/client/styles.build.css && webpack-dev-server",
+    "watch:server": "rm -f src/server/index.js && run-p watch:ts watch:server:init",
+    "watch:server:init": "wait-on src/server/index.js && yarn start",
+    "watch:ts": "tsc -w --preserveWatchOutput"
   }
 }
