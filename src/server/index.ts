@@ -3,31 +3,17 @@ import dotenv from 'dotenv-safe'
 
 dotenv.config()
 
-import cors from 'cors'
-import express from 'express'
-import morgan from 'morgan'
-import errorhandler from 'errorhandler'
-import path from 'path'
+import http from 'http'
 
+import { app } from './app'
 import { config } from './config'
-import { router } from './routes'
+import { getHotReloadWatcher } from './utils/hot-reload-watcher'
 
-const app = express()
+let server: http.Server
 
-if (config.env !== 'test') {
-  app.use(morgan(config.env === 'development' ? 'dev' : 'common'))
-}
-
-if (config.env !== 'production') {
-  app.use(errorhandler())
-}
-
-app.use(cors())
-app.use(express.static(path.resolve(__dirname, '../../public')))
-
-const maybeListen = () => {
+const maybeListen = (srv: http.Server) => {
   if (require.main === module) {
-    app.listen(config.port, () =>
+    srv.listen(config.port, () =>
       console.log(`Server listening on ${config.port}`)
     )
   }
@@ -36,20 +22,26 @@ const maybeListen = () => {
 if (config.env === 'development') {
   /**
    * Enable hot reloading during development: the dynamic `require` of the
-   * routing middleware works in conjunction with hot-reload-watcher to clear
+   * express `app` works in conjunction with hot-reload-watcher to clear
    * Node.js's module cache and re-`require` the modules.
    *
    * @todo This approach doesn't work for this module or any of its directly
    * `require`-ed modules as they are retained in memory. Look into a fix.
    */
-  const { start } = require('./utils/hot-reload-watcher')
-  start().then(() => {
-    app.use((...args) => require('./routes/index').router(...args))
-    maybeListen()
-  })
+  let devApp = require('./app').app
+  const watcher = getHotReloadWatcher()
+  server = http.createServer(devApp)
+
+  watcher
+    .on('ready', () => maybeListen(server))
+    .on('change', () => {
+      server.removeListener('request', devApp)
+      devApp = require('./app').app
+      server.on('request', devApp)
+    })
 } else {
-  app.use(router)
-  maybeListen()
+  server = http.createServer(app)
+  maybeListen(server)
 }
 
-export default app
+export { server }

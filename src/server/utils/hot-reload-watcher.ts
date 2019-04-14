@@ -21,42 +21,28 @@ let watcher: chokidar.FSWatcher | undefined
  *
  * {@link https://codeburst.io/dont-use-nodemon-there-are-better-ways-fc016b50b45e}
  */
-export const start = () => {
+export const getHotReloadWatcher = () => {
   if (watcher) {
-    return Promise.resolve()
+    return watcher
   }
 
   watcher = chokidar
-    .watch(path.resolve(__dirname, '../**/*.js'))
+    .watch(path.resolve(__dirname, '../**/*.js'), {
+      awaitWriteFinish: true
+    })
     .on('error', log)
-
-  return new Promise((resolve, reject) => {
-    if (!watcher) {
-      reject(new Error('No watcher'))
-    } else {
-      watcher
-        .on('change', (p, stats) => {
-          log(`change: ${p}`)
-          if (!stats || (stats && !stats.isDirectory())) {
-            for (const [id] of Object.entries(require.cache)) {
-              // Only clear local modules
-              if (/^((?!node_modules).)*\.js$/.test(id)) {
-                delete require.cache[id]
-              }
-            }
+    .on('change', (p, stats) => {
+      log(`change: ${p}`)
+      if (!stats || (stats && !stats.isDirectory())) {
+        for (const [id] of Object.entries(require.cache)) {
+          // Only clear local modules
+          if (/^((?!node_modules).)*\.js$/.test(id)) {
+            delete require.cache[id]
           }
-        })
-        .on('ready', () => {
-          log('ready')
-          resolve()
-        })
-    }
-  })
-}
+        }
+      }
+    })
+    .on('ready', () => log('ready'))
 
-export const stop = () => {
-  if (watcher) {
-    watcher.close()
-    watcher = undefined
-  }
+  return watcher
 }
