@@ -82,6 +82,7 @@ export class NumericPicker extends Component<
           disabled={typeof min === 'number' && value <= min}
           role="button"
           onClick={this.handleDecreaseClick}
+          type="button"
           variant="hollow"
         >
           -
@@ -98,6 +99,7 @@ export class NumericPicker extends Component<
           disabled={typeof max === 'number' && value >= max}
           role="button"
           onClick={this.handleIncreaseClick}
+          type="button"
           variant="hollow"
         >
           +
