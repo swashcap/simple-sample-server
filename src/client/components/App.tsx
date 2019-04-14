@@ -6,17 +6,20 @@ import { ErrorPage } from './ErrorPage'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { Home } from './Home'
+import { MaxWidth } from './layout/MaxWidth'
 import { routes } from '../../common/routes'
 
 export const App = ({ initialUrl }: { initialUrl?: string }) => (
   <div class="app">
     <Header />
     <main>
-      <Router url={initialUrl}>
-        <Home path={routes.home.path} />
-        <About path={routes.about.path} />
-        <ErrorPage code={404} default />
-      </Router>
+      <MaxWidth>
+        <Router url={initialUrl}>
+          <Home path={routes.home.path} />
+          <About path={routes.about.path} />
+          <ErrorPage code={404} default />
+        </Router>
+      </MaxWidth>
     </main>
     <Footer />
   </div>
