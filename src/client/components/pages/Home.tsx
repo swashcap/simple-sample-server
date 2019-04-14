@@ -1,10 +1,10 @@
 import { h } from 'preact'
 import { RouterProps as RoutableProps } from 'preact-router'
 
-import { Headline } from './text/Headline'
-import { Text } from './text/Text'
-import { Link } from './controls/Link'
-import { Subheadline } from './text/Subheadline'
+import { Headline } from '../text/Headline'
+import { Text } from '../text/Text'
+import { Link } from '../controls/Link'
+import { Subheadline } from '../text/Subheadline'
 
 export const Home = (props: RoutableProps) => (
   <div>

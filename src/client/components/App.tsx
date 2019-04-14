@@ -1,11 +1,11 @@
 import { h } from 'preact'
 import Router from 'preact-router'
 
-import { About } from './About'
-import { ErrorPage } from './ErrorPage'
-import { Footer } from './Footer'
-import { Header } from './Header'
-import { Home } from './Home'
+import { About } from './pages/About'
+import { ErrorPage } from './pages/ErrorPage'
+import { Footer } from './layout/Footer'
+import { Header } from './layout/Header'
+import { Home } from './pages/Home'
 import { MaxWidth } from './layout/MaxWidth'
 import { routes } from '../../common/routes'
 

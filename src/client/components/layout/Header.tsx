@@ -1,8 +1,8 @@
 import { h } from 'preact'
 
-import { Link } from './controls/Link'
-import { MaxWidth } from './layout/MaxWidth'
-import { routes } from '../../common/routes'
+import { Link } from '../controls/Link'
+import { MaxWidth } from './MaxWidth'
+import { routes } from '../../../common/routes'
 
 export const Header = () => (
   <header class="bb b--black-20" role="banner">

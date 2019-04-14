@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import { RoutableProps } from 'preact-router'
 
-import { Headline } from './text/Headline'
-import { Text } from './text/Text'
+import { Headline } from '../text/Headline'
+import { Text } from '../text/Text'
 
 const messages: Record<number, string> = {
   404: 'Could not find it, dude'

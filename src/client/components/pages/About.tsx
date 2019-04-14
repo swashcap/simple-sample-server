@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import { RoutableProps } from 'preact-router'
 
-import { Headline } from './text/Headline'
-import { Text } from './text/Text'
+import { Headline } from '../text/Headline'
+import { Text } from '../text/Text'
 
 export const About = (props: RoutableProps) => (
   <div>

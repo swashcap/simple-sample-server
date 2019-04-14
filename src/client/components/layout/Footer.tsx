@@ -1,7 +1,7 @@
 import { h } from 'preact'
 
-import { Caption } from './text/Caption'
-import { MaxWidth } from './layout/MaxWidth'
+import { Caption } from '../text/Caption'
+import { MaxWidth } from './MaxWidth'
 
 export const Footer = () => (
   <footer class="bt b--black-20 tr" role="contentinfo">
