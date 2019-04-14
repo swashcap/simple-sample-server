@@ -3,6 +3,10 @@ export const routes = {
     path: '/about/',
     title: 'About'
   },
+  counter: {
+    path: '/counter/',
+    title: 'Counter'
+  },
   home: {
     path: '/',
     title: 'Home'

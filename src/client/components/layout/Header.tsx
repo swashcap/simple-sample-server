@@ -14,6 +14,9 @@ export const Header = () => (
         <Link class="dib mh3 pv3" href={routes.about.path}>
           About
         </Link>
+        <Link class="dib mh3 pv3" href={routes.counter.path}>
+          Counter
+        </Link>
       </nav>
     </MaxWidth>
   </header>
