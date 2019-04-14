@@ -10,5 +10,5 @@ export const Subheadline = ({
   element: Component = 'h2',
   ...rest
 }: SubheadlineProps) => (
-  <Component class={clsx('f3 fw6 lh-title mv3', className)} {...rest} />
+  <Component class={clsx('f3 fw6 lh-title mb3 mt3', className)} {...rest} />
 )

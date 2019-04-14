@@ -10,5 +10,5 @@ export const Headline = ({
   element: Component = 'h1',
   ...rest
 }: HeadlineProps) => (
-  <Component class={clsx('f1 fw5 lh-title mv3', className)} {...rest} />
+  <Component class={clsx('f1 fw5 lh-title mb3 mt3', className)} {...rest} />
 )
