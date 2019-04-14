@@ -7,6 +7,11 @@ import { APP_ELEMENT_ID } from '../../common/app-element-id'
 import { routes } from '../../common/routes'
 import { App } from '../../client/components/App'
 
+/**
+ * Use Webpack's env-aware config for scripts' `publicPath`
+ */
+const webpackConfig = require('../../../webpack.config.js')
+
 const routeObjs = Object.values(routes)
 
 /**
@@ -27,13 +32,13 @@ export const template = ({
     <title>${title}</title>
     <meta name="description" content="${description}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="//localhost:9000/assets/styles.bundle.js"></script>
+    <script src="${webpackConfig.output.publicPath}styles.bundle.js"></script>
   </head>
   <body class="sans-serif w-100">
     <div id="${APP_ELEMENT_ID}">
     ${content}
     </div>
-    <script src="//localhost:9000/assets/main.bundle.js"></script>
+    <script src="${webpackConfig.output.publicPath}main.bundle.js"></script>
   </body>
 </html>`
 

@@ -20,6 +20,20 @@ if (config.env !== 'production') {
 app.use(cors())
 app.use(express.static(path.resolve(__dirname, '../../public')))
 
+/**
+ * Serve compiled assets when running in "production" mode.
+ *
+ * @todo Assets should be pushed to a CDN or served by nginx.
+ */
+if (config.env === 'production') {
+  app.use(
+    '/dist',
+    express.static(path.resolve(__dirname, '../../dist/'), {
+      index: false
+    })
+  )
+}
+
 app.use(router)
 
 export { app }

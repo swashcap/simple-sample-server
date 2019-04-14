@@ -44,8 +44,8 @@ module.exports = {
     // webpack-dev-server's `publicPath` doesn't work without this:
     publicPath:
       process.env.NODE_ENV === 'development'
-        ? 'http://localhost:9000/assets/'
-        : undefined
+        ? '//localhost:9000/assets/'
+        : '/dist/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']
