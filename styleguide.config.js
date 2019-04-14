@@ -11,6 +11,7 @@ module.exports = {
         'react-dom': 'preact-compat'
       }
     }
+    delete webpackConfig.devServer
 
     return webpackConfig
   },
