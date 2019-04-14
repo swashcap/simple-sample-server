@@ -3,6 +3,12 @@ const path = require('path')
 module.exports = {
   devServer: {
     compress: true,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:4000',
+      'Access-Control-Allow-Credentials': 'true'
+    },
+    hotOnly: true,
+    publicPath: 'http://localhost:9000/assets/',
     port: 9000
   },
   devtool: 'source-map',
@@ -31,7 +37,12 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    // webpack-dev-server's `publicPath` doesn't work without this:
+    publicPath:
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:9000/assets/'
+        : undefined
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']

@@ -32,7 +32,7 @@ export const template = ({
     <div id="${APP_ELEMENT_ID}">
     ${content}
     </div>
-    <script src="//localhost:9000/main.bundle.js"></script>
+    <script src="//localhost:9000/assets/main.bundle.js"></script>
   </body>
 </html>`
 
