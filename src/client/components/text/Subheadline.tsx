@@ -7,8 +7,8 @@ export interface SubheadlineProps extends JSX.HTMLAttributes {
 
 export const Subheadline = ({
   class: className,
-  element: Component = 'h1',
+  element: Component = 'h2',
   ...rest
 }: SubheadlineProps) => (
-  <Component class={clsx('f3 fw6 lh-title', className)} {...rest} />
+  <Component class={clsx('f3 fw6 lh-title mv3', className)} {...rest} />
 )

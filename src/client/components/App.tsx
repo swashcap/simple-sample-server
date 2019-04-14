@@ -12,7 +12,7 @@ import { routes } from '../../common/routes'
 export const App = ({ initialUrl }: { initialUrl?: string }) => (
   <div class="app">
     <Header />
-    <main>
+    <main class="mb5 mt3">
       <MaxWidth>
         <Router url={initialUrl}>
           <Home path={routes.home.path} />
