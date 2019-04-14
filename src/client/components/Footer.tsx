@@ -4,7 +4,7 @@ import { Caption } from './text/Caption'
 import { MaxWidth } from './layout/MaxWidth'
 
 export const Footer = () => (
-  <footer class="bt b--gray tr" role="contentinfo">
+  <footer class="bt b--black-20 tr" role="contentinfo">
     <MaxWidth class="pt3 pb2">
       <Caption class="db mid-gray" element="small">
         Source code{' '}
