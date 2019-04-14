@@ -27,7 +27,7 @@ export const getHotReloadWatcher = () => {
   }
 
   watcher = chokidar
-    .watch(path.resolve(__dirname, '../**/*.js'), {
+    .watch(path.resolve(__dirname, '../../**/*.js'), {
       awaitWriteFinish: true
     })
     .on('error', log)
