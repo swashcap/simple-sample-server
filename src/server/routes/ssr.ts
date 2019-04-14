@@ -27,6 +27,7 @@ export const template = ({
     <title>${title}</title>
     <meta name="description" content="${description}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//localhost:9000/assets/styles.bundle.js"></script>
   </head>
   <body class="sans-serif w-100">
     <div id="${APP_ELEMENT_ID}">

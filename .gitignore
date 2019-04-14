@@ -72,3 +72,6 @@ rsg/**/*.map
 # webpack build
 dist
 .awcache
+
+# Generated content
+src/client/styles.build.css

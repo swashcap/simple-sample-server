@@ -1,7 +1,6 @@
 import { h, Component } from 'preact'
 import clsx from 'clsx'
 
-import './Input.css'
 import { Button } from './Button'
 import { Input } from './Input'
 

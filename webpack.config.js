@@ -12,7 +12,10 @@ module.exports = {
     port: 9000
   },
   devtool: 'source-map',
-  entry: './src/client/index.tsx',
+  entry: {
+    main: './src/client/index.tsx',
+    styles: './src/client/styles.build.css'
+  },
   module: {
     rules: [
       {

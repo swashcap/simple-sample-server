@@ -1,7 +1,5 @@
 import { h, render } from 'preact'
 
-import 'tachyons/css/tachyons.css'
-
 if (process.env.NODE_ENV === 'development') {
   require('preact/debug')
 }
