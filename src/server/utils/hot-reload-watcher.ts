@@ -21,7 +21,13 @@ let watcher: chokidar.FSWatcher | undefined
  *
  * {@link https://codeburst.io/dont-use-nodemon-there-are-better-ways-fc016b50b45e}
  */
-export const getHotReloadWatcher = () => {
+export const getHotReloadWatcher = ({
+  onChange,
+  onReady
+}: {
+  onChange: () => void
+  onReady: () => void
+}) => {
   if (watcher) {
     return watcher
   }
@@ -41,8 +47,12 @@ export const getHotReloadWatcher = () => {
           }
         }
       }
+      onChange()
     })
-    .on('ready', () => log('ready'))
+    .on('ready', () => {
+      log('ready')
+      onReady()
+    })
 
   return watcher
 }

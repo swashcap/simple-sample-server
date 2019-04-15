@@ -29,16 +29,18 @@ if (config.env === 'development') {
    * `require`-ed modules as they are retained in memory. Look into a fix.
    */
   let devApp = require('./app').app
-  const watcher = getHotReloadWatcher()
   server = http.createServer(devApp)
 
-  watcher
-    .on('ready', () => maybeListen(server))
-    .on('change', () => {
+  getHotReloadWatcher({
+    onChange() {
       server.removeListener('request', devApp)
       devApp = require('./app').app
       server.on('request', devApp)
-    })
+    },
+    onReady() {
+      maybeListen(server)
+    }
+  })
 } else {
   server = http.createServer(app)
   maybeListen(server)
