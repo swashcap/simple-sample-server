@@ -22,6 +22,13 @@ export const Header = () => (
       >
         About
       </Link>
+      <Link
+        activeClassName={'fw7'}
+        class={`${linkClass} dib pa2`}
+        href={routes.counter.path}
+      >
+        Counter
+      </Link>
     </nav>
   </header>
 )

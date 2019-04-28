@@ -1,4 +1,16 @@
-import { h } from 'preact'
+import { Component, h } from 'preact'
 import { RoutableProps } from 'preact-router'
 
-export const Counter = (props: RoutableProps) => <div>Counter!</div>
+import { NumericPicker } from '../controls/NumericPicker'
+
+export interface CounterProps extends RoutableProps {}
+
+export class Counter extends Component<CounterProps> {
+  render() {
+    return (
+      <div>
+        <NumericPicker max={10} />
+      </div>
+    )
+  }
+}
