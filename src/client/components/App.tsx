@@ -11,9 +11,9 @@ import { MaxWidth } from './layout/MaxWidth'
 import { routes } from '../../common/routes'
 
 export const App = ({ initialUrl }: { initialUrl?: string }) => (
-  <div class="app">
+  <div class="app flex flex-column">
     <Header />
-    <main class="mb5 mt3">
+    <main class="mb5 mt3" style="flex-grow: 2">
       <MaxWidth>
         <Router url={initialUrl}>
           <Home path={routes.home.path} />
