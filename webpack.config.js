@@ -4,7 +4,7 @@ module.exports = {
   devServer: {
     compress: true,
     headers: {
-      'Access-Control-Allow-Origin': 'http://localhost:4000',
+      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': 'true'
     },
     hotOnly: true,
