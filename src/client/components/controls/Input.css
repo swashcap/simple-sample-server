@@ -8,3 +8,6 @@
   -webkit-appearance: none;
   margin: 0;
 }
+.input-reset[type=number] {
+  -moz-appearance:textfield;
+}
