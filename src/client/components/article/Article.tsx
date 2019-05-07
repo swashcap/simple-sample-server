@@ -1,5 +1,7 @@
 import { h } from 'preact'
 
+import { ArticleDate } from './ArticleDate'
+
 export interface ArticleProps extends JSX.HTMLAttributes {
   published?: Date
   title?: string
@@ -14,11 +16,7 @@ export const Article = ({
   <article {...rest}>
     <header>
       <h1 class="f2 lh-title mt0 mb4">{title}</h1>
-      {!!published && (
-        <time class="dark-gray db f6 mv2">
-          {published.toLocaleDateString()}
-        </time>
-      )}
+      {!!published && <ArticleDate class="mv2" date={published} />}
     </header>
     <div class="measure lh-copy mv3">{children}</div>
   </article>
