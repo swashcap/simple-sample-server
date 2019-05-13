@@ -1,5 +1,6 @@
 import { RequestHandler, Router } from 'express'
 
+import { articles } from './api'
 import { ssr } from './ssr'
 
 /**
@@ -12,6 +13,7 @@ import { ssr } from './ssr'
  */
 export const router: RequestHandler = (...args) => {
   const r = Router()
+  r.get('/api/articles', articles)
   r.get('*', ssr())
   return r(...args)
 }
