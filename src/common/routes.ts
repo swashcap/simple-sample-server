@@ -1,7 +1,7 @@
 export const routes = {
-  about: {
-    path: '/about/',
-    title: 'About'
+  articles: {
+    path: '/articles/',
+    title: 'Articles'
   },
   counter: {
     path: '/counter/',

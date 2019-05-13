@@ -18,9 +18,9 @@ export const Header = () => (
       <Link
         activeClassName={'fw7'}
         class={`${linkClass} dib pa2`}
-        href={routes.about.path}
+        href={routes.articles.path}
       >
-        About
+        Articles
       </Link>
       <Link
         activeClassName={'fw7'}

@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import Router from 'preact-router'
 
-import { About } from './pages/About'
+import { Articles } from './pages/Articles'
 import { Counter } from './pages/Counter'
 import { ErrorPage } from './pages/ErrorPage'
 import { Footer } from './layout/Footer'
@@ -17,7 +17,7 @@ export const App = ({ initialUrl }: { initialUrl?: string }) => (
       <MaxWidth>
         <Router url={initialUrl}>
           <Home path={routes.home.path} />
-          <About path={routes.about.path} />
+          <Articles path={routes.articles.path} />
           <Counter path={routes.counter.path} />
           <ErrorPage code={404} default />
         </Router>

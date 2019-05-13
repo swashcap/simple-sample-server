@@ -11,8 +11,8 @@ export const Header = () => (
         <Link class="dib mh3 pv3" href={routes.home.path} rel="home">
           Simple Sample Server
         </Link>
-        <Link class="dib mh3 pv3" href={routes.about.path}>
-          About
+        <Link class="dib mh3 pv3" href={routes.articles.path}>
+          Articles
         </Link>
         <Link class="dib mh3 pv3" href={routes.counter.path}>
           Counter

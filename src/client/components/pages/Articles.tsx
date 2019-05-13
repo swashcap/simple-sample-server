@@ -4,9 +4,9 @@ import { RoutableProps } from 'preact-router'
 import { Headline } from '../text/Headline'
 import { Text } from '../text/Text'
 
-export const About = (props: RoutableProps) => (
+export const Articles = (props: RoutableProps) => (
   <div class="ph3">
-    <Headline class="mt0 mb3">About</Headline>
+    <Headline class="mt0 mb3">Articles</Headline>
     <Text class="mt0 mb3" element="p">
       Proin vestibulum nunc in metus cursus at aliquam neque mollis. Curabitur
       hendrerit porta nibh, a dignissim diam tempor eu. Nam id erat dictum velit
