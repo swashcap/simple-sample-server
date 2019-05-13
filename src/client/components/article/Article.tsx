@@ -1,11 +1,9 @@
 import { h } from 'preact'
 
+import { Article as ArticleType } from '../../../common/types'
 import { ArticleDate } from './ArticleDate'
 
-export interface ArticleProps extends JSX.HTMLAttributes {
-  published?: Date
-  title?: string
-}
+export type ArticleProps = JSX.HTMLAttributes & ArticleType
 
 export const Article = ({
   children,

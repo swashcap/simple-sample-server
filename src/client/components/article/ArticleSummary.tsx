@@ -1,13 +1,11 @@
 import { h } from 'preact'
 import clsx from 'clsx'
 
+import { Article } from '../../../common/types'
 import { ArticleDate } from './ArticleDate'
 
-export interface ArticleSummaryProps extends JSX.HTMLAttributes {
-  published?: Date
-  summary?: string
-  title?: string
-}
+export type ArticleSummaryProps = JSX.HTMLAttributes &
+  Pick<Article, 'id' | 'published' | 'summary' | 'title'>
 
 export const ArticleSummary = ({
   class: className,
