@@ -1,0 +1,22 @@
+.LoadingIndicator {
+}
+.LoadingIndicator-row {
+  animation: LoadingIndicatorPillGlisten 1s ease-in-out infinite alternate;
+  background-color: #999;
+  height: .25rem;
+}
+.LoadingIndicator-row:nth-child(2n) {
+  animation-delay: .333s;
+}
+.LoadingIndicator-row:nth-child(3n) {
+  animation-delay: .666s;
+}
+
+@keyframes LoadingIndicatorPillGlisten {
+  from {
+    background-color: #999;
+  }
+  to {
+    background-color: #fff;
+  }
+}
