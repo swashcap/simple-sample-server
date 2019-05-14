@@ -5,3 +5,8 @@ export interface Article {
   summary?: string
   title?: string
 }
+
+export interface ArticleSerialized
+  extends Pick<Article, Exclude<keyof Article, 'published'>> {
+  published?: string
+}

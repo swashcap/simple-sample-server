@@ -1,33 +1,82 @@
-import { h } from 'preact'
+import { h, Component } from 'preact'
 import { RoutableProps } from 'preact-router'
+import fetch from 'isomorphic-fetch'
 
+import { Article, ArticleSerialized } from '../../../common/types'
+import { ArticleSummary } from '../article/ArticleSummary'
 import { Headline } from '../text/Headline'
+import { LoadingIndicator } from '../indicators/LoadingIndicator'
 import { Text } from '../text/Text'
 
-export const Articles = (props: RoutableProps) => (
-  <div class="ph3">
-    <Headline class="mt0 mb3">Articles</Headline>
-    <Text class="mt0 mb3" element="p">
-      Proin vestibulum nunc in metus cursus at aliquam neque mollis. Curabitur
-      hendrerit porta nibh, a dignissim diam tempor eu. Nam id erat dictum velit
-      facilisis tincidunt. Etiam auctor, felis et auctor blandit, eros quam
-      aliquam orci, ac mollis neque dui vitae arcu. Fusce fringilla lectus ut
-      ipsum condimentum a egestas odio pretium. Fusce vehicula erat a eros
-      fermentum vestibulum. In a nisi eu dolor adipiscing facilisis sed et est.
-      Suspendisse potenti. Praesent nec nulla elit, sit amet molestie metus.
-      Curabitur consectetur, ipsum sit amet fringilla imperdiet, nisi nulla
-      pharetra nunc, et consectetur nulla nisl a dolor. Phasellus suscipit ipsum
-      nec purus luctus ut euismod nisi dapibus. Vestibulum eget metus in lorem
-      dignissim condimentum mattis non lorem.
-    </Text>
-    <Text class="mt0 mb3" element="p">
-      Morbi est tellus, dapibus at imperdiet non, ultricies ut risus. Nunc
-      faucibus leo in augue sodales eget rhoncus dolor lobortis. Fusce pulvinar
-      ipsum eu augue pharetra at congue arcu aliquam. Cras in sem dui. Nam a
-      elit purus. Fusce fermentum condimentum nunc vel pulvinar. Donec quis leo
-      non nisl egestas aliquam id eget elit. Vivamus sed nisl vitae arcu
-      adipiscing lacinia ac a dui. Cras hendrerit, tortor sed pharetra dapibus,
-      nisl justo dapibus arcu, volutpat placerat quam massa vel lectus.
-    </Text>
-  </div>
-)
+export interface ArticlesState {
+  articles: Article[]
+  error?: Error
+  fetched: boolean
+}
+
+export class Articles extends Component<RoutableProps, ArticlesState> {
+  constructor(props: RoutableProps) {
+    super(props)
+    this.state = {
+      articles: [],
+      error: undefined,
+      fetched: false
+    }
+  }
+  async componentDidMount() {
+    try {
+      const response = await fetch('/api/articles')
+
+      if (!response.ok) {
+        throw new Error(`Couldn't fetch articles: ${response.status}`)
+      }
+
+      const json: ArticleSerialized[] = await response.json()
+
+      this.setState({
+        articles: json.map(article => ({
+          ...article,
+          published: article.published ? new Date(article.published) : undefined
+        })),
+        error: undefined,
+        fetched: true
+      })
+    } catch (e) {
+      this.setState({
+        error: e,
+        fetched: true
+      })
+    }
+  }
+
+  render(props: RoutableProps, { articles, error, fetched }: ArticlesState) {
+    let content
+
+    if (!fetched) {
+      content = (
+        <LoadingIndicator class="center" style={{ maxWidth: '100px' }} />
+      )
+    } else if (error) {
+      content = <Text>{error.message}</Text>
+    } else {
+      content = (
+        <ol class="list ma0 pa0">
+          {articles.map(a => (
+            <li class="mv3">
+              <ArticleSummary {...a} />
+            </li>
+          ))}
+        </ol>
+      )
+    }
+
+    return (
+      <div class="ph3">
+        <Headline class="mt0 mb3">Articles</Headline>
+        <div class="cf">
+          <div class="fl w-100 w-50-ns">{content}</div>
+        </div>
+      </div>
+    )
+  }
+}
