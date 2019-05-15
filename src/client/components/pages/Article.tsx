@@ -11,7 +11,7 @@ import { LoadingIndicator } from '../indicators/LoadingIndicator'
 import { Text } from '../text/Text'
 
 export interface ArticlePageProps extends RoutableProps {
-  articleId: string
+  articleId?: string
 }
 
 export interface ArticlePageState {
@@ -63,9 +63,10 @@ export class ArticlePage extends Component<ArticlePageProps, ArticlePageState> {
   }
 
   render(
-    { articleId }: ArticlePageProps,
+    props: ArticlePageProps,
     { article, error, fetched }: ArticlePageState
   ) {
+    const articleId = props.articleId!
     let content
 
     if (!fetched) {
