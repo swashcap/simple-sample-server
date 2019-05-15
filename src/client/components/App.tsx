@@ -1,6 +1,7 @@
 import { h } from 'preact'
 import Router from 'preact-router'
 
+import { ArticlePage } from './pages/Article'
 import { Articles } from './pages/Articles'
 import { Counter } from './pages/Counter'
 import { ErrorPage } from './pages/ErrorPage'
@@ -18,6 +19,7 @@ export const App = ({ initialUrl }: { initialUrl?: string }) => (
         <Router url={initialUrl}>
           <Home path={routes.home.path} />
           <Articles path={routes.articles.path} />
+          <ArticlePage path={routes.article.path} />
           <Counter path={routes.counter.path} />
           <ErrorPage code={404} default />
         </Router>

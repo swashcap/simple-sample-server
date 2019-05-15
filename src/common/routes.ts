@@ -1,4 +1,8 @@
 export const routes = {
+  article: {
+    path: '/articles/:articleId',
+    title: 'Article'
+  },
   articles: {
     path: '/articles/',
     title: 'Articles'
