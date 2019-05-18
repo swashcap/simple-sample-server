@@ -33,3 +33,17 @@ const data: Article[] = [
 export const articles: RequestHandler = (req, res) => {
   res.send(data)
 }
+
+export const article: RequestHandler = ({ params }, res) => {
+  if (params.id) {
+    return res.status(400)
+  }
+
+  const article = data.find(({ id }) => id === params.id)
+
+  if (!article) {
+    return res.status(400)
+  }
+
+  res.send(article)
+}
