@@ -33,24 +33,18 @@ export class ArticlePage extends Component<ArticlePageProps, ArticlePageState> {
     const { articleId } = this.props
 
     try {
-      const response = await fetch('/api/articles')
+      const response = await fetch(`/api/articles/${articleId}`)
 
       if (!response.ok) {
         throw new Error(`Couldn't fetch article: ${response.status}`)
       }
 
-      const json: ArticleSerialized[] = await response.json()
-      const found = json.find(({ id }) => id === articleId)
-
-      // TODO: Redirect to 404
-      if (!found) {
-        throw new Error(`Article ${articleId} not found`)
-      }
+      const json: ArticleSerialized = await response.json()
 
       this.setState({
         article: {
-          ...found,
-          published: found.published ? new Date(found.published) : undefined
+          ...json,
+          published: json.published ? new Date(json.published) : undefined
         },
         fetched: true
       })
