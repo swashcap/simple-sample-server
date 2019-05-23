@@ -65,7 +65,7 @@
     "build:ts": "tsc",
     "build:webpack": "webpack --mode production",
     "clean": "./scripts/clean.sh",
-    "format": "prettier --write '*.js' '{rsg,src}/**/*.{ts,tsx}'",
+    "format": "prettier --write '*.js' '{rsg,src,test}/**/*.{ts,tsx}'",
     "start": "node src/server",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
