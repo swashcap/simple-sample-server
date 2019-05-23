@@ -65,6 +65,8 @@ src/**/*.js
 src/**/*.map
 rsg/**/*.js
 rsg/**/*.map
+tests/**/*.js
+tests/**/*.map
 
 # macOS dir state
 .DS_Store
@@ -75,3 +77,6 @@ dist
 
 # Generated content
 src/client/styles.build.css
+
+# nightwatch output
+tests_output

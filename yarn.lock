@@ -286,6 +286,11 @@
   dependencies:
     "@types/express" "*"
 
+"@types/nightwatch@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@types/nightwatch/-/nightwatch-1.1.0.tgz#a13147599b639361d8d85e6df9481ddcaf400234"
+  integrity sha512-K0c1JLzKBxlZe/uDUmOfIeGy+vbshDK26Vwpnf+nSld1aaZ/cDXwagk3R056zscbpJwomKbIA0jM+zgtPtr/DA==
+
 "@types/node@*":
   version "11.13.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.0.tgz#b0df8d6ef9b5001b2be3a94d909ce3c29a80f9e1"
