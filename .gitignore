@@ -80,3 +80,6 @@ src/client/styles.build.css
 
 # nightwatch output
 tests_output
+
+# TS incremental build artifact
+tsconfig.tsbuildinfo
