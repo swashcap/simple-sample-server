@@ -35,14 +35,14 @@ export const articles: RequestHandler = (req, res) => {
 }
 
 export const article: RequestHandler = ({ params }, res) => {
-  if (params.id) {
-    return res.status(400)
+  if (!params.id) {
+    return res.send(400)
   }
 
   const article = data.find(({ id }) => id === params.id)
 
   if (!article) {
-    return res.status(400)
+    return res.send(400)
   }
 
   res.send(article)
