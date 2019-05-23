@@ -1,7 +1,5 @@
+import 'dotenv-safe/config'
 import 'make-promises-safe'
-import dotenv from 'dotenv-safe'
-
-dotenv.config()
 
 import http from 'http'
 
