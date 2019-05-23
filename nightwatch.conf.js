@@ -1,5 +1,8 @@
+require('dotenv-safe/config')
+
 const chromedriver = require('chromedriver')
 const seleniumServer = require('selenium-server')
+
 module.exports = {
   selenium: {
     start_process: true,
@@ -16,7 +19,8 @@ module.exports = {
     default: {
       desiredCapabilities: {
         browserName: 'chrome'
-      }
+      },
+      launch_url: `http://localhost:${process.env.PORT}`
     }
   }
 }
